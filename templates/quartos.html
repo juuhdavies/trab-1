@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Nossos Quartos - Hotel Elfsong{% endblock %}
+
+{% block content %}
+<div class="text-center mb-5">
+    <h1 class="display-6 fw-bold">Nossas Acomodações</h1>
+    <p class="text-muted">Explore as categorias disponíveis e encontre a configuração ideal.</p>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for quarto in quartos %}
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <div class="bg-secondary text-white text-center py-5">
+                <span class="fs-4">{{ quarto.nome }}</span>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title fw-bold text-dark">{{ quarto.nome }}</h5>
+                <p class="card-text text-muted fs-6">{{ quarto.descricao }}</p>
+                <hr>
+                <ul class="list-unstyled mb-4">
+                    <li><strong>Capacidade Adultos:</strong> {{ quarto.adultos }}</li>
+                    <li><strong>Capacidade Crianças:</strong> {{ quarto.criancas }}</li>
+                </ul>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="fs-5 fw-bold text-success">Euros {{ "%.2f"|format(quarto.preco) }} / diária</span>
+                    <a href="{{ url_for('reservas') }}" class="btn btn-outline-primary btn-sm">Reservar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
