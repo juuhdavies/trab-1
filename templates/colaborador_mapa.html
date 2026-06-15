@@ -1,0 +1,61 @@
+{% extends 'base_colaborador.html' %}
+
+{% block title %}Mapa de Ocupação - Sistema Interno{% endblock %}
+
+{% block content %}
+<div class="card shadow border-0">
+    <div class="card-body p-4">
+        <div class="row align-items-center mb-4">
+            <div class="col-md-7">
+                <h2 class="fw-bold m-0 text-dark">Mapa de Ocupação</h2>
+                <p class="text-muted m-0">Listagem de status operacional das acomodações.</p>
+            </div>
+            <div class="col-md-5">
+                <form method="POST" action="{{ url_for('colaborador_mapa') }}" class="d-flex gap-2">
+                    <input type="date" name="data_filtro" class="form-control" value="{{ data }}" required>
+                    <button type="submit" class="btn btn-dark text-nowrap">Atualizar Mapa</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle border-top bg-white">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col" style="width: 10%">Nº</th>
+                        <th scope="col">Tipo de Acomodação</th>
+                        <th scope="col" style="width: 15%">Status</th>
+                        <th scope="col">Hóspede Alocado</th>
+                        <th scope="col">Previsão Check-out</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for quarto in mapa %}
+                    <tr>
+                        <td class="fw-bold fs-5">{{ quarto.numero }}</td>
+                        <td>{{ quarto.tipo }}</td>
+                        <td>
+                            {% if quarto.status == 'Livre' %}
+                                <span class="badge bg-success px-3 py-2">Disponível</span>
+                            {% elif quarto.status == 'Reservado' %}
+                                <span class="badge bg-warning text-dark px-3 py-2">Reservado</span>
+                            {% else %}
+                                <span class="badge bg-danger px-3 py-2">Ocupado</span>
+                            {% endif %}
+                        </td>
+                        <td class="text-muted fw-semibold">{{ quarto.hospede }}</td>
+                        <td>
+                            {% if quarto.checkout != '-' %}
+                                <span class="text-dark fw-bold">{{ quarto.checkout }}</span>
+                            {% else %}
+                                <span class="text-muted">-</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'base_colaborador.html' %}
+
+{% block title %}Cadastro de Estrutura - Gerência{% endblock %}
+
+{% block content %}
+<div class="bg-light p-3 rounded mb-4 d-flex justify-content-between align-items-center shadow-sm border">
+    <div class="btn-group" role="group">
+        <a href="{{ url_for('colaborador_mapa') }}" class="btn btn-outline-primary">Mapa de Quartos</a>
+        <a href="{{ url_for('colaborador_fluxo') }}" class="btn btn-outline-primary">Check-In / Check-Out</a>
+        <a href="{{ url_for('gerente_cadastro') }}" class="btn btn-primary active">Painel de Cadastro (Gerente)</a>
+        <a href="{{ url_for('gerente_faturamento') }}" class="btn btn-outline-primary">Faturamento (Gerente)</a>
+    </div>
+    <span class="badge bg-danger px-3 py-2">Acesso Administrativo</span>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="card shadow border-0 h-100">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3 text-dark border-bottom pb-2">Registrar Novo Quarto</h4>
+                <form method="POST" action="#">
+                    <div class="mb-3">
+                        <label class="form-label">Número do Quarto</label>
+                        <input type="text" class="form-control" placeholder="Ex: 402" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tipo de Quarto</label>
+                        <select class="form-select" required>
+                            <option value="standard">Quarto Standard</option>
+                            <option value="executive">Quarto Executive Family</option>
+                            <option value="suite">Master Suite Elfsong</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Preço da Diária (€)</label>
+                        <input type="number" step="0.01" class="form-control" placeholder="0.00" required>
+                    </div>
+                    <div class="row g-2 mb-4">
+                        <div class="col-6">
+                            <label class="form-label">Limite Adultos</label>
+                            <input type="number" class="form-control" min="1" max="3" value="3" required>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Limite Crianças</label>
+                            <input type="number" class="form-control" min="0" max="2" value="2" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Salvar Cadastro de Quarto</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow border-0 h-100">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3 text-dark border-bottom pb-2">Registrar Sala de Conferência</h4>
+                <form method="POST" action="#">
+                    <div class="mb-3">
+                        <label class="form-label">Nome / Identificação da Sala</label>
+                        <input type="text" class="form-control" placeholder="Ex: Auditório Master Premium" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Capacidade Máxima de Pessoas</label>
+                        <input type="number" class="form-control" placeholder="Ex: 150" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Preço Base por Turno (€)</label>
+                        <input type="number" step="0.01" class="form-control" placeholder="0.00" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Salvar Cadastro de Sala</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Acesso Interno - Hotel Elfsong{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center pt-4">
+    <div class="col-md-5">
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+                <h3 class="card-title text-center mb-4 fw-bold text-primary">Painel do Colaborador</h3>
+                
+                <form action="{{ url_for('colaborador_inicio') }}" method="GET">
+                    <div class="mb-3">
+                        <label for="id_credencial" class="form-label">ID de Registro / Matrícula</label>
+                        <input type="text" class="form-control" id="id_credencial" placeholder="Ex: ID-90000" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Senha de Acesso</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary fw-bold">Acessar Sistema Interno</button>
+                    </div>
+                </form>
+
+                <div class="mt-4 pt-2 border-top text-center">
+                    <small>
+                        <a href="{{ url_for('login') }}" class="text-decoration-none text-secondary">&larr; Voltar para Login do Cliente</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

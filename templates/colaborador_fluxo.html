@@ -1,0 +1,55 @@
+{% extends 'base_colaborador.html' %}
+
+{% block title %}Check-In e Check-Out - Sistema Interno{% endblock %}
+
+{% block content %}
+<h2 class="fw-bold mb-4 text-dark">Controle de Fluxo na Recepção</h2>
+
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="card shadow border-0 border-start border-4 border-success h-100">
+            <div class="card-body p-4">
+                <h3 class="fw-bold text-success mb-3">Realizar Check-In</h3>
+                <p class="text-muted small">Dar entrada e vincular o cliente a um quarto disponível.</p>
+                <form method="POST" action="#">
+                    <div class="mb-3">
+                        <label class="form-label">Cpf do Cliente</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Vincular ao Quarto</label>
+                        <select class="form-select" required>
+                            <option value="102">Quarto 102 (Standard)</option>
+                            <option value="202">Quarto 202 (Executive Family)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Confirmar Entrada (Check-In)</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow border-0 border-start border-4 border-danger h-100">
+            <div class="card-body p-4">
+                <h3 class="fw-bold text-danger mb-3">Realizar Check-Out</h3>
+                <p class="text-muted small">Processar encerramento de conta e liberação de chaves.</p>
+                <form method="POST" action="#">
+                    <div class="mb-3">
+                        <label class="form-label">Selecione o Quarto Ocupado</label>
+                        <select class="form-select" required>
+                            <option value="101">Quarto 101 - Tav</option>
+                            <option value="201">Quarto 201 - Shadowheart</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Consumo Adicional / Extras ($)</label>
+                        <input type="number" step="0.01" class="form-control" value="0.00">
+                    </div>
+                    <button type="submit" class="btn btn-danger w-100">Processar Saída (Check-Out)</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
