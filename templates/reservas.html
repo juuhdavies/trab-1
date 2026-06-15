@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}Realizar Reserva - Hotel Elfsong{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow border-0">
+            <div class="card-body p-5">
+                <h2 class="card-title text-center mb-4 fw-bold">Solicitação de Reserva</h2>
+                <div class="alert alert-info text-center" role="alert">
+                    <strong>Preço Garantido:</strong> O valor total da sua estadia é calculado e congelado no ato da confirmação da reserva.
+                </div>
+
+                <form method="POST" action="#">
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-12">
+                            <label class="form-label fw-semibold">Tipo de Quarto</label>
+                            <select class="form-select" required>
+                                <option value="" selected disabled>Escolha a acomodação...</option>
+                                <option value="standard">Quarto Standard</option>
+                                <option value="executive">Quarto Executive Family</option>
+                                <option value="suite">Master Suite Elfsong</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Número de Adultos</label>
+                            <select class="form-select" required>
+                                <option value="1">1 Adulto</option>
+                                <option value="2">2 Adultos</option>
+                                <option value="3">3 Adultos (Capacidade Máxima)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Número de Crianças</label>
+                            <select class="form-select" required>
+                                <option value="0">Nenhuma</option>
+                                <option value="1">1 Criança</option>
+                                <option value="2">2 Crianças (Capacidade Máxima)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Data de Check-in</label>
+                            <input type="date" class="form-select" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Data de Check-out</label>
+                            <input type="date" class="form-select" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label d-block fw-semibold">Regime de Hospedagem</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cafe_opcao" id="com_cafe" value="sim" checked>
+                            <label class="form-check-label" for="com_cafe">Com café da manhã inclusivo</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="cafe_opcao" id="sem_cafe" value="nao">
+                            <label class="form-check-label" for="sem_cafe">Sem café da manhã</label>
+                        </div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">Verificar Disponibilidade e Preço</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

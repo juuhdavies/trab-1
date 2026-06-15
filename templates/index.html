@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Início - Hotel Elfsong{% endblock %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3 text-center">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold text-dark">Bem-vindo ao Hotel Elfsong</h1>
+        <p class="col-md-8 mx-auto fs-4 text-muted">
+            Onde o conforto moderno encontra a hospitalidade clássica. Localizado estrategicamente em baldur's gate, com os melhores bardos e tortas de maçã de toda Faerun.
+        </p>
+        <a href="{{ url_for('reservas') }}" class="btn btn-primary btn-lg">Planeje a sua Estadia</a>
+    </div>
+</div>
+
+<div class="row text-center mt-5">
+    <div class="col-md-4">
+        <div class="p-3 border rounded bg-white shadow-sm">
+            <h3 class="h4 text-primary">Acomodações de Charme</h3>
+            <p class="text-muted">Quartos totalmente configuráveis para adultos e crianças, garantindo o descanso perfeito.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="p-3 border rounded bg-white shadow-sm">
+            <h3 class="h4 text-primary">Salas de Conferência</h3>
+            <p class="text-muted">Espaços modernos e equipados prontos para acolher os seus eventos e reuniões corporativas.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="p-3 border rounded bg-white shadow-sm">
+            <h3 class="h4 text-primary">Gastronomia</h3>
+            <p class="text-muted">Opções flexíveis de estadias com ou sem pequeno-almoço preparado pelos nossos chefes.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
