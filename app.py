@@ -38,6 +38,10 @@ def quartos():
 def reservas():
     return render_template('reservas.html')
 
+@app.route('/reservas_conferencia', methods=['GET', 'POST'])
+def reservas_conferencia():
+    return render_template('reservas_conferencia.html')
+
 @app.route('/login')
 def login():
     return render_template('login.html')

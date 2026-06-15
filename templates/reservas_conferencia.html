@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Reserva de Conferência - Hotel Elfsong{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+            <h2 class="fw-bold mb-0">Reserva de Salas de Conferência</h2>
+            <a href="{{ url_for('reservas') }}" class="btn btn-outline-secondary">
+                &larr; Voltar para Reserva de Quartos
+            </a>
+        </div>
+
+        <div class="card shadow border-0">
+            <div class="card-body p-5">
+                <div class="alert alert-warning text-center" role="alert">
+                    <strong>Nota para Eventos:</strong> As salas de conferência estão disponíveis para reservas de clientes externos e hóspedes.
+                </div>
+
+                <form method="POST" action="#">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Nome do Evento / Empresa</label>
+                        <input type="text" class="form-control" placeholder="Ex: Workshop de Engenharia de Software" required>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Selecione a Sala</label>
+                            <select class="form-select" required>
+                                <option value="" selected disabled>Escolha o espaço...</option>
+                                <option value="sala_a">Auditório Principal (Até 150 pessoas)</option>
+                                <option value="sala_b">Sala Executive Boardroom (Até 20 pessoas)</option>
+                                <option value="sala_c">Espaço Multiusos C (Até 60 pessoas)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Estimativa de Participantes</label>
+                            <input type="number" class="form-control" min="1" placeholder="Quantidade" required>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Data do Evento</label>
+                            <input type="date" class="form-select" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Período de Aluguer</label>
+                            <select class="form-select" required>
+                                <option value="" selected disabled>Escolha o turno...</option>
+                                <option value="manha">Manhã (08:00 - 12:00)</option>
+                                <option value="tarde">Tarde (14:00 - 18:00)</option>
+                                <option value="noite">Noite (19:00 - 23:00)</option>
+                                <option value="integral">Dia Inteiro (08:00 - 18:00)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-success btn-lg">Solicitar Reserva do Espaço</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
